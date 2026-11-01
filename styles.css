@@ -6,6 +6,9 @@
 .is-clickable{cursor:pointer}.is-clickable:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.service-card.is-active{border:2px solid var(--orange);padding:26px}.service-action{display:block;margin-top:22px;color:var(--blue);font-size:13px;font-weight:700}.service-action span{margin-left:4px}.service-details{display:grid;grid-template-columns:1fr 1fr;gap:55px;margin-top:24px;padding:42px;background:var(--mint);border-radius:20px}.service-details h3{font-size:30px;letter-spacing:-.04em;margin:0 0 14px}.service-details h4{font-family:Manrope;font-size:18px;margin:0 0 7px}.service-details p{color:var(--muted);line-height:1.55;font-size:14px}.detail-list{display:grid;gap:22px}.detail-list>div{padding-left:20px;border-left:3px solid var(--orange)}@media(max-width:760px){.service-details{grid-template-columns:1fr;gap:25px;padding:28px}.service-details h3{font-size:25px}}
 .service-grid article{background:#edf5ef;border:1px solid #d3e5d9;border-radius:22px;box-shadow:0 12px 28px rgba(23,43,42,.10)}
 
+.payment-band{background:#172b2a;color:#fff;padding:88px 0}.payment-inner{display:flex;align-items:center;justify-content:space-between;gap:50px}.payment-inner .eyebrow{color:#b9ead4}.payment-inner h2{font-family:Manrope;font-size:clamp(36px,4vw,54px);line-height:1.03;letter-spacing:-.06em;margin:0 0 18px}.payment-inner p:not(.eyebrow){max-width:600px;color:#d4e6e3;line-height:1.6;margin:0}.stripe-button{white-space:nowrap}.stripe-button.is-loading{opacity:.65;pointer-events:none}@media(max-width:760px){.payment-band{padding:70px 0}.payment-inner{display:block}.stripe-button{margin-top:28px}}
+.payment-status{margin-top:22px;padding:14px 18px;border-radius:12px;font-size:14px;line-height:1.5;font-weight:600}.payment-status.is-success{background:#d9f0e6;color:#173f35}.payment-status.is-cancelled{background:#f0dfd3;color:#6b3e2b}
+
 /* Keep service cards comfortable to read on narrow screens. */
 @media (max-width: 760px){
   .service-grid{
