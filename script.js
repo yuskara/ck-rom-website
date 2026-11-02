@@ -5,7 +5,7 @@ menu?.addEventListener('click', () => {
   links.setAttribute('aria-hidden', String(!open));
 });
 
-const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/aFa00j14CaKT80s6LHaVa00';
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_aFa00j14CaKT80s6LHaVa00';
 const stripeButton = document.querySelector('[data-stripe-payment-link]');
 const paymentStatus = document.querySelector('[data-payment-status]');
 stripeButton?.addEventListener('click', (event) => {
