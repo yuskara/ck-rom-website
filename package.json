@@ -1,7 +1,0 @@
-{
-  "name": "ck-rom-solutions-site",
-  "private": true,
-  "type": "module",
-  "scripts": { "start": "node --env-file=.env server.mjs" },
-  "dependencies": { "stripe": "^20.0.0" }
-}

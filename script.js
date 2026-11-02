@@ -5,33 +5,20 @@ menu?.addEventListener('click', () => {
   links.setAttribute('aria-hidden', String(!open));
 });
 
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_aFa00j14CaKT80s6LHaVa00';
 const stripeButton = document.querySelector('[data-stripe-payment-link]');
 const paymentStatus = document.querySelector('[data-payment-status]');
-const paymentResult = new URLSearchParams(window.location.search).get('payment');
-if (paymentStatus && paymentResult === 'success') {
-  paymentStatus.textContent = 'Payment received successfully. Thank you — CK-ROM SOLUTIONS LLC will follow up shortly.';
-  paymentStatus.hidden = false;
-  paymentStatus.classList.add('is-success');
-}
-if (paymentStatus && paymentResult === 'cancelled') {
-  paymentStatus.textContent = 'Payment was cancelled. No charge was made. You can try again whenever you are ready.';
-  paymentStatus.hidden = false;
-  paymentStatus.classList.add('is-cancelled');
-}
-
 stripeButton?.addEventListener('click', (event) => {
+  if (STRIPE_PAYMENT_LINK) {
+    stripeButton.href = STRIPE_PAYMENT_LINK;
+    return;
+  }
   event.preventDefault();
-  stripeButton.setAttribute('aria-busy', 'true');
-  stripeButton.classList.add('is-loading');
-
-  fetch('/api/create-checkout-session', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
-    .then((response) => response.ok ? response.json() : response.json().then((body) => Promise.reject(new Error(body.error || 'Unable to start checkout.'))))
-    .then(({ url }) => { window.location.assign(url); })
-    .catch((error) => {
-      stripeButton.removeAttribute('aria-busy');
-      stripeButton.classList.remove('is-loading');
-      window.alert(`${error.message} Please email info@ck-rom.com if you need help.`);
-    });
+  if (paymentStatus) {
+    paymentStatus.textContent = 'Online payment is being configured. Please email info@ck-rom.com for a payment link.';
+    paymentStatus.hidden = false;
+    paymentStatus.classList.add('is-cancelled');
+  }
 });
 
 const supportCard = document.querySelector('[data-service="it-support"]');
