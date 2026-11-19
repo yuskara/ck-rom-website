@@ -1,5 +1,13 @@
 const menu = document.querySelector('.menu');
 const links = document.querySelector('.nav-links');
+
+// Keep the visible brand marks from being dragged or copied through the browser UI.
+document.querySelectorAll('.protected-logo').forEach((logo) => {
+  logo.addEventListener('contextmenu', (event) => event.preventDefault());
+  logo.addEventListener('dragstart', (event) => event.preventDefault());
+  logo.addEventListener('copy', (event) => event.preventDefault());
+});
+
 menu?.addEventListener('click', () => {
   const open = links.classList.toggle('is-open');
   links.setAttribute('aria-hidden', String(!open));
